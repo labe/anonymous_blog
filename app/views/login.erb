@@ -1,0 +1,24 @@
+<div class="container">
+  <h1><a href="/">Squirrel Pop</a></h1>
+  <div>
+    <h2>Tree-nage Dreams and Acorns</h2>
+    <form method="POST" action="/sign_in">
+    	<table>
+    		<% if session[:signin_input_error] %>
+    			<tr><td>Durn it! There was an error signing you in. Try again?</td></tr>
+    		<% end %>
+    		<tr>
+    			<td><p>Email:</td>
+    			<td><input type="text" name="email"></td>
+    		</tr>
+    		<tr>
+    			<td>Password:</td>
+    			<td><input type="text" name="password"></td>
+    		</tr>
+    		<tr><td><input type="submit" value="Sign In"></td></tr>
+    	</table>
+    </form>
+    <p>or</p>
+    <p id="create_account"><a href="/create_user_account">Create an account!</a></p>
+  </div>
+</div>

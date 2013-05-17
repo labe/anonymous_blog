@@ -1,0 +1,20 @@
+<div class="container">
+  <h1><a href="/">Squirrel Pop</a></h1>
+  <h3>Edit your post</h3>
+  <div id="edit post">
+  	<form method="post" action="/edit_post/<%= @post.id %>">
+  	<p>Post title:</p>
+  	<p><input type="text" name="title" value="<%= @post.title %>"></p>
+  	<p>Post body:<p>
+  	<textarea rows="10" cols="40" name="body"><%= @post.body %></textarea>
+    <p>Tags (separate with comma):&nbsp;<input type="text" name="tags" value="<%= @post.tags_as_string %>"></p>
+    <input type="hidden" name="id" value="<%= @post.id %>">
+  	<p><input type="submit" value="Publish!"></p>
+  	</form>
+    <br />
+      <form method="post" action="/delete_post">
+        <input type="hidden" name="id" value="<%= @post.id %>">
+        <input type="submit" value="Delete post">
+      </form>
+ 	</div>
+</div>

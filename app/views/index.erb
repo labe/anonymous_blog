@@ -1,23 +1,29 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
-
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
+  <% if session[:user_id] %>
+    <h5>Signed in as <%= User.find(session[:user_id]).name %></h5>
+    <h5 id="logout"><a href="/logout">Log out</a></h5>
+  <% else %>
+    <h5 id="login"><a href="/login">Sign in</a></h5>
+  <% end %>
+  <h1><a href="/">Squirrel Pop</a></h1>
+  <div id="blog actions">
+    <h2>Tree-nage Dreams and Acorns</h2>
+    <p><a href="/check_user_session">Create a new post</a></p>
+    <p><a href="/all_posts">View all posts</a></p>
+    <form method="post" action="/tag">
+      <p>View by tag:&nbsp;</p>
+      <select name="tag">
+        <% Tag.all.each do |tag| %>
+          <option><%= tag.name %></option>
+        <% end %>
+      </select>
+      <input type="submit" value="GIT 'EM">
+    </form>
+    <form method="POST" action="/search">
+      <p>Search posts:&nbsp;
+        <input type="text" name="search_titles">
+      </p>
+      <input type="submit" value="SEARCH PARTY ON!"
+    </form>
+  </div>
 </div>

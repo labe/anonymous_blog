@@ -1,0 +1,19 @@
+<div class="container">
+  <h1><a href="/">Squirrel Pop</a></h1>
+  <h2>Tree-nage Dreams and Acorns</h2>
+  <div class="show post">
+  	<% @post.each do |post| %>
+  		<h2 id="title"><a href="/post/<%= post.id %>"><%= post.title %></a></h2>
+      <h5 id="byline">Written by:&nbsp;<%= User.find(post.user_id).name %>&nbsp;on&nbsp;<%= post.created_at.strftime("%Y-%m-%d") %></h5>
+  		<div id="post_body"><p><%= post.body %></p></div>
+  		<p id="tags">Tags:&nbsp;
+  			<% post.tags.each do |tag| %>
+  			<%= tag.name + " " %>
+  			<% end %>
+  		</p>
+      <% if session[:user_id] == post.user_id %>
+		  <p class="edit"><a href="/edit_post/<%= post.id %>">Edit post</a></p>
+      <% end %>
+	  <% end %>
+	</div>
+</div>

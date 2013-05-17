@@ -1,0 +1,31 @@
+Things the app can do:
+
+* create multiple user accounts
+	- check to make sure email isn't already registered
+	- alert user if email is already registered
+* sign in an existing account
+	- check to make sure sign in credentials match
+	- alert user if sign in attempt failed
+* "sign in" / "sign out" link in header changes accordingly
+* "create new post" redirects user to sign in/sign up if not logged in
+	- after sign in/sign up, user is redirected to "create new post" page
+	- or if user signed in/up directly from header link, redirects back to home page!
+* create a blog post and assign signed-in user as the author
+* add tags to a post
+* edit a blog post if post author == signed in user
+	- user cannot edit someone else's post
+* delete a post
+* view all posts
+* view individual post
+* view all posts by tag
+* search all posts (title and body) and return all matches (this is imperfect as it will return partial matches on the string)
+
+
+
+Things the app cannot do:
+
+* support multiple blogs
+* allow view-all-posts by author
+* paginate posts
+* display multiple paragraphs
+* look not-shitty

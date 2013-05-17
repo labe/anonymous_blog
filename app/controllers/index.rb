@@ -1,4 +1,5 @@
 get '/' do
-  # Look in app/views/index.erb
+	session[:signin_input_error] = false
+	session[:signup_input_error] = false
   erb :index
 end
